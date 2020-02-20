@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {TextField} from 'react-native-material-textfield';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import AsyncStorage from '@react-native-community/async-storage';
 import {Button} from '../../components';
 
 export default function NameScreen({navigation}) {
+  const [userName, setUserName] = useState('');
+
+  async function saveNameOnStorage() {
+    await AsyncStorage.setItem('userName', userName);
+    navigation.navigate('NameLibras');
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>AppLibras</Text>
@@ -19,12 +27,13 @@ export default function NameScreen({navigation}) {
           tintColor="#007AED"
           fontSize={20}
           lineWidth={2}
+          onChangeText={nameInput => setUserName(nameInput)}
         />
       </View>
       <Button
         title="Concluído"
         top={hp(23)}
-        onPress={() => navigation.navigate('NameLibras')}
+        onPress={() => saveNameOnStorage()}
       />
     </View>
   );
