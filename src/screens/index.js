@@ -1,4 +1,4 @@
-import Home from './Home';
+import NameScreen from './NameScreen';
 import Alphabet from './Alphabet';
 
-export {Home, Alphabet};
+export {NameScreen, Alphabet};
