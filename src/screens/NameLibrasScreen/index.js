@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Card, Button} from '../../components';
 
-export default function NameLibrasScreen() {
+export default function NameLibrasScreen({navigation}) {
   return (
     <View style={styles.container}>
       <View style={{position: 'absolute', top: hp(7)}}>
@@ -16,7 +16,11 @@ export default function NameLibrasScreen() {
         <Card />
         <Card />
       </View>
-      <Button title="Concluído" top={hp(5)} />
+      <Button
+        title="Concluído"
+        top={hp(5)}
+        onPress={() => navigation.navigate('TabHome')}
+      />
     </View>
   );
 }
