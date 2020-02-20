@@ -1,12 +1,25 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import A from '../../assets/alphabet/a.svg';
 
-export default function Card() {
+function Card() {
   return (
     <View style={styles.card}>
       <A width={wp(25)} height={wp(25)} />
+    </View>
+  );
+}
+
+export default function CardList(props) {
+  return (
+    <View>
+      <FlatList
+        data={props.data}
+        renderItem={() => <Card />}
+        keyExtractor={item => item}
+        numColumns={2}
+      />
     </View>
   );
 }

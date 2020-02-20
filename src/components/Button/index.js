@@ -5,7 +5,7 @@ export default function Button(props) {
   return (
     <View style={{top: props.top}}>
       <TouchableOpacity style={styles.btn} onPress={props.onPress}>
-        <Text style={styles.text}>{props.title}</Text>
+        <Text style={styles.text}>{props.title || 'Concluído'}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     paddingVertical: 10,
     borderRadius: 50,
-    position: 'absolute',
   },
 
   text: {

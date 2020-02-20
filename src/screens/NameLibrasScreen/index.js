@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {Card, Button} from '../../components';
+import {Button, CardList} from '../../components';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default function NameLibrasScreen({navigation}) {
   const [userName, setUserName] = useState('');
+  const [letters, setLetters] = useState(
+    'a b c d e f g h i k j l m n o p q r s t u v w x y z'.split(' '),
+  );
 
   async function readUserName() {
     const name = await AsyncStorage.getItem('userName');
@@ -18,21 +20,22 @@ export default function NameLibrasScreen({navigation}) {
 
   return (
     <View style={styles.container}>
-      <View style={{position: 'absolute', top: hp(7)}}>
-        <Text style={{textAlign: 'center', fontSize: 20}}>Olá, {userName}</Text>
-        <Text style={{fontSize: 20}}>Seu nome em LIBRAS é assim:</Text>
+      <View style={styles.header}>
+        <Text style={styles.textTitle}>Olá, {userName}</Text>
+        <Text style={styles.textTitle}>Seu nome em LIBRAS é assim:</Text>
       </View>
-      <View style={styles.cards}>
-        <Card letter="a" />
-        <Card letter="a" />
-        <Card letter="a" />
-        <Card letter="a" />
+
+      <View style={styles.listCards}>
+        <CardList
+          data={userName}
+          userName={userName}
+          onPress={() => navigation.navigate('TabHome')}
+        />
       </View>
-      <Button
-        title="Concluído"
-        top={hp(5)}
-        onPress={() => navigation.navigate('TabHome')}
-      />
+
+      <View style={styles.footer}>
+        <Button onPress={() => navigation.navigate('TabHome')} />
+      </View>
     </View>
   );
 }
@@ -41,12 +44,27 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F3F3F3',
+  },
+
+  header: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  cards: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+  textTitle: {
+    textAlign: 'center',
+    fontSize: 20,
+  },
+
+  listCards: {
+    flex: 6,
+    marginHorizontal: 5,
+  },
+
+  footer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
