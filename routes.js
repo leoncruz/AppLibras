@@ -1,17 +1,23 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Alphabet} from './src/screens/';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NameScreen, Alphabet} from './src/screens/';
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Aphabet" component={Alphabet} />
-      </Tab.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="NameScreen"
+          component={NameScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen name="Aphabet" component={Alphabet} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
