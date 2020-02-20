@@ -5,9 +5,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default function NameLibrasScreen({navigation}) {
   const [userName, setUserName] = useState('');
-  const [letters, setLetters] = useState(
-    'a b c d e f g h i k j l m n o p q r s t u v w x y z'.split(' '),
-  );
 
   async function readUserName() {
     const name = await AsyncStorage.getItem('userName');
@@ -28,7 +25,6 @@ export default function NameLibrasScreen({navigation}) {
       <View style={styles.listCards}>
         <CardList
           data={userName}
-          userName={userName}
           onPress={() => navigation.navigate('TabHome')}
         />
       </View>
