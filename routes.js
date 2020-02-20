@@ -1,7 +1,9 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   NameScreen,
   NameLibrasScreen,
@@ -15,9 +17,34 @@ const Tab = createBottomTabNavigator();
 
 function TabHome() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Alphabet" component={Alphabet} />
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color, size}) => {
+          if (route.name === 'Inicio') {
+            if (focused) {
+              return <Icon name="home" size={25} color="#fff" />;
+            } else {
+              return <Icon name="home" size={25} color="#505050" />;
+            }
+          } else if (route.name === 'Alfabeto') {
+            if (focused) {
+              return <Icon name="alphabetical" size={25} color="#fff" />;
+            } else {
+              return <Icon name="alphabetical" size={25} color="#505050" />;
+            }
+          }
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: '#fff',
+        inactiveTintColor: '#505050',
+        style: {
+          backgroundColor: '#007AED',
+          elevation: 1,
+        },
+      }}>
+      <Tab.Screen name="Inicio" component={HomeScreen} />
+      <Tab.Screen name="Alfabeto" component={Alphabet} />
     </Tab.Navigator>
   );
 }
