@@ -9,7 +9,7 @@ import {Button} from '../../compoents';
 
 export default function NameScreen({navigation}) {
   return (
-    <View style={styles.background}>
+    <View style={styles.container}>
       <Text style={styles.title}>AppLibras</Text>
       <View style={{width: wp(70)}}>
         <TextField
@@ -31,7 +31,7 @@ export default function NameScreen({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  background: {
+  container: {
     flex: 1,
     backgroundColor: '#F3F3F3',
     alignItems: 'center',
