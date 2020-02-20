@@ -17,11 +17,11 @@ export default function NameScreen({navigation}) {
           keyboardType="default"
           textColor="#505050"
           tintColor="#007AED"
-          fontSize={hp(3)}
+          fontSize={20}
           lineWidth={2}
         />
       </View>
-      <Button 
+      <Button
         title="Concluído"
         top={hp(23)}
         onPress={() => navigation.navigate('NameLibras')}
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 
   title: {
     position: 'absolute',
-    top: hp(5),
+    top: hp(2),
     fontSize: hp(4),
   },
 });

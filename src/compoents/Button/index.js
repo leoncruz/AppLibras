@@ -19,14 +19,14 @@ const styles = StyleSheet.create({
   btn: {
     alignSelf: 'center',
     backgroundColor: '#007AED',
-    paddingHorizontal: wp(10),
-    paddingVertical: hp(1),
+    paddingHorizontal: 30,
+    paddingVertical: 10,
     borderRadius: 50,
     position: 'absolute',
   },
 
   text: {
-    fontSize: hp(4),
+    fontSize: 20,
     color: '#ffffff',
   },
 });
