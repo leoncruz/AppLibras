@@ -7,12 +7,10 @@ import {
 } from 'react-native-responsive-screen';
 import {Button} from '../../compoents';
 
-export default function NameScreen() {
+export default function NameScreen({navigation}) {
   return (
     <View style={styles.background}>
-      <Text style={{position: 'absolute', top: hp(5), fontSize: hp(4)}}>
-        AppLibras
-      </Text>
+      <Text style={styles.title}>AppLibras</Text>
       <View style={{width: wp(70)}}>
         <TextField
           label="Qual é o seu nome?"
@@ -23,7 +21,11 @@ export default function NameScreen() {
           lineWidth={2}
         />
       </View>
-      <Button title="Concluído" top={hp(23)} />
+      <Button 
+        title="Concluído"
+        top={hp(23)}
+        onPress={() => navigation.navigate('NameLibras')}
+      />
     </View>
   );
 }
@@ -34,5 +36,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  title: {
+    position: 'absolute',
+    top: hp(5),
+    fontSize: hp(4),
   },
 });

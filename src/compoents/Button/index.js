@@ -8,7 +8,7 @@ import {
 export default function Button(props) {
   return (
     <View style={{top: props.top}}>
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity style={styles.btn} onPress={props.onPress}>
         <Text style={styles.text}>{props.title}</Text>
       </TouchableOpacity>
     </View>
