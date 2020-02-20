@@ -6,7 +6,7 @@ import {Card, Button} from '../../components';
 export default function NameLibrasScreen() {
   return (
     <View style={styles.container}>
-      <View style={{position: 'absolute', top: hp(10)}}>
+      <View style={{position: 'absolute', top: hp(7)}}>
         <Text style={{textAlign: 'center', fontSize: 20}}>Olá, Ceci</Text>
         <Text style={{fontSize: 20}}>Seu nome em LIBRAS é assim:</Text>
       </View>
