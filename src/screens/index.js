@@ -3,4 +3,4 @@ import NameLibrasScreen from './NameLibrasScreen';
 import HomeScreen from './HomeScreen';
 import Alphabet from './Alphabet';
 
-export {NameScreen, NameLibrasScreen, Alphabet};
+export {NameScreen, NameLibrasScreen, HomeScreen, Alphabet};
