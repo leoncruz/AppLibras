@@ -5,7 +5,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import {Button} from '../../compoents';
+import {Button} from '../../components';
 
 export default function NameScreen({navigation}) {
   return (

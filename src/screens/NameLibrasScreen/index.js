@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {Card, Button} from '../../compoents';
+import {Card, Button} from '../../components';
 
 export default function NameLibrasScreen() {
   return (
