@@ -1,21 +1,22 @@
-import React, {useState} from 'react';
-import {View, Image, FlatList, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, Image, FlatList, StyleSheet, Text} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import A from '../../assets/alphabet/a.svg';
+import images from '../../util/pathToImages';
 
 function Card({item}) {
   return (
     <View style={styles.card}>
-      <A width={100} height={100} />
+      <Image
+        source={images[item.toLowerCase()]}
+        style={{width: 100, height: 100}}
+        resizeMode="contain"
+      />
+      <Text>{item}</Text>
     </View>
   );
 }
 
 export default function CardList(props) {
-  const [letters, setLetters] = useState(
-    'a b c d e f g h i k j l m n o p q r s t u v w x y z'.split(' '),
-  );
-
   return (
     <View>
       <FlatList
