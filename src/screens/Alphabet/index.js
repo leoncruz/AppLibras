@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {CarouselLetters} from '../../components';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import {ListLetters} from '../../components';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default function Alphabet() {
   return (
@@ -11,21 +11,7 @@ export default function Alphabet() {
       </View>
 
       <View style={styles.content}>
-        <View>
-          <Icon name="keyboard-arrow-left" size={25} color="#007AED" />
-        </View>
-
-        <View>
-          <CarouselLetters />
-        </View>
-
-        <View>
-          <Icon name="keyboard-arrow-right" size={25} color="#007AED" />
-        </View>
-      </View>
-
-      <View style={styles.footer}>
-        <Text style={styles.title}>Automático</Text>
+        <ListLetters />
       </View>
     </View>
   );
@@ -46,20 +32,15 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 24,
+    fontSize: 18,
+    color: '#007AED',
   },
 
   content: {
-    flex: 3,
+    flex: hp(2),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 10,
-  },
-
-  footer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
