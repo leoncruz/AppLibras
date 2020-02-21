@@ -15,7 +15,7 @@ export default function Alphabet() {
           <Icon name="keyboard-arrow-left" size={25} color="#007AED" />
         </View>
 
-        <View style={{flex: 5, justifyContent: 'center', alignItems: 'center'}}>
+        <View>
           <CarouselLetters />
         </View>
 

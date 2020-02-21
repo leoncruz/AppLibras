@@ -28,8 +28,8 @@ export default class CarouselLetters extends React.Component {
         ref={c => (this._carousel = c)}
         data={this.state.letters}
         renderItem={this._renderItem.bind(this)}
-        sliderWidth={500}
-        itemWidth={200}
+        sliderWidth={wp(70)}
+        itemWidth={wp(60)}
         contentContainerCustomStyle={styles.contentContainerStyle}
         inactiveSlideOpacity={0.0}
       />
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
 
   contentContainerStyle: {
-    padding: 100,
-    margin: 10,
+    height: wp(70),
+    alignSelf: 'center',
   },
 });
