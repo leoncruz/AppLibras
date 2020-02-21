@@ -23,10 +23,7 @@ export default function NameLibrasScreen({navigation}) {
       </View>
 
       <View style={styles.listCards}>
-        <CardList
-          data={userName}
-          onPress={() => navigation.navigate('TabHome')}
-        />
+        <CardList data={userName} />
       </View>
 
       <View style={styles.footer}>
