@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 export default class CarouselLetters extends React.Component {
   constructor(props) {
@@ -27,14 +28,9 @@ export default class CarouselLetters extends React.Component {
         ref={c => (this._carousel = c)}
         data={this.state.letters}
         renderItem={this._renderItem.bind(this)}
-        sliderWidth={360}
-        itemWidth={256}
-        layout={'default'}
-        firstItem={0}
-        contentContainerCustomStyle={{
-          padding: 100,
-          margin: 10,
-        }}
+        sliderWidth={500}
+        itemWidth={200}
+        contentContainerCustomStyle={styles.contentContainerStyle}
         inactiveSlideOpacity={0.0}
       />
     );
@@ -48,10 +44,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     elevation: 2,
     borderWidth: 0.5,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 5,
   },
 
   title: {
     fontSize: 22,
     alignSelf: 'center',
+  },
+
+  contentContainerStyle: {
+    padding: 100,
+    margin: 10,
   },
 });

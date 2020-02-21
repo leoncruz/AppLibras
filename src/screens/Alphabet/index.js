@@ -2,8 +2,6 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {CarouselLetters} from '../../components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import SwiperCards from '../../components';
 
 export default function Alphabet() {
   return (
@@ -13,16 +11,16 @@ export default function Alphabet() {
       </View>
 
       <View style={styles.content}>
-        <View tyle={{flex: 1}}>
-          <Icon name="keyboard-arrow-left" size={25} />
+        <View>
+          <Icon name="keyboard-arrow-left" size={25} color="#007AED" />
         </View>
 
         <View style={{flex: 5, justifyContent: 'center', alignItems: 'center'}}>
           <CarouselLetters />
         </View>
 
-        <View style={{flex: 1}}>
-          <Icon name="keyboard-arrow-right" size={25} />
+        <View>
+          <Icon name="keyboard-arrow-right" size={25} color="#007AED" />
         </View>
       </View>
 
