@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import A from '../../assets/alphabet/a.svg';
 
 export default function Card() {
   return (
