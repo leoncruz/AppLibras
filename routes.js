@@ -19,7 +19,7 @@ function TabHome() {
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {
-          if (route.name === 'Inicio') {
+          if (route.name === 'Atividades') {
             if (focused) {
               return <Icon name="home" size={25} color="#fff" />;
             } else {
@@ -42,7 +42,7 @@ function TabHome() {
           elevation: 1,
         },
       }}>
-      <Tab.Screen name="Inicio" component={HomeScreen} />
+      <Tab.Screen name="Atividades" component={HomeScreen} />
       <Tab.Screen name="Alfabeto" component={Alphabet} />
     </Tab.Navigator>
   );
