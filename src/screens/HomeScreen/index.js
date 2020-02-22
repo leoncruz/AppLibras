@@ -3,7 +3,6 @@ import {View, Text, StyleSheet} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import AsyncStorage from '@react-native-community/async-storage';
 import {CarouselHome} from '../../components';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function HomeScreen() {
   const [userName, setUserName] = useState('');
@@ -20,7 +19,6 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Olá, {userName}</Text>
         <Text style={styles.title}>Suas Atividades</Text>
       </View>
       <View style={styles.content}>
@@ -39,18 +37,18 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    top: hp(2),
-    flex: hp(1),
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   title: {
-    fontSize: 20,
+    fontSize: 24,
     color: '#007AED',
     textAlign: 'center',
   },
 
   content: {
-    flex: hp(4),
-    alignSelf: 'center',
+    flex: 6,
   },
 });

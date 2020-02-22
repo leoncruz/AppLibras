@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import Carousel from 'react-native-snap-carousel';
+import {View, Text, StyleSheet, Button} from 'react-native';
+import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -11,6 +11,7 @@ export default class CarouselHome extends React.Component {
     super();
     this.state = {
       letters: ['a', 'b', 'c', 'd', 'e'],
+      activeSlide: 0,
     };
     this.props = props;
     this._carousel = {};
@@ -18,25 +19,52 @@ export default class CarouselHome extends React.Component {
 
   _renderItem = ({item}) => {
     return (
-      <View style={styles.slide}>
-        <Text style={styles.title}>{item}</Text>
-        <Text style={styles.title}>Letra {item}</Text>
+      <View style={{flex: 1}}>
+        <Text style={styles.title}>Título da atividade {item}</Text>
+        <View style={styles.slide}>
+          <Text style={{textAlign: 'center'}}>Letra {item}</Text>
+        </View>
       </View>
     );
   };
 
+  get pagination() {
+    const {letters, activeSlide} = this.state;
+
+    return (
+      <Pagination
+        dotsLength={letters.length}
+        activeDotIndex={activeSlide}
+        dotContainerStyle={{
+          bottom: wp(5),
+        }}
+        dotStyle={{
+          width: 10,
+          height: 10,
+          borderRadius: 5,
+          marginHorizontal: 0,
+          backgroundColor: '#007AED',
+        }}
+        inactiveDotOpacity={0.4}
+        inactiveDotScale={0.6}
+      />
+    );
+  }
+
   render() {
     return (
-      <Carousel
-        ref={c => (this._carousel = c)}
-        data={this.state.letters}
-        renderItem={this._renderItem.bind(this)}
-        sliderWidth={wp(80)}
-        itemWidth={wp(80)}
-        contentContainerCustomStyle={styles.contentContainerStyle}
-        inactiveSlideOpacity={0.0}
-        loop
-      />
+      <View>
+        <Carousel
+          ref={c => (this._carousel = c)}
+          data={this.state.letters}
+          renderItem={this._renderItem.bind(this)}
+          sliderWidth={wp('100%')}
+          itemWidth={wp(70)}
+          loop
+          onSnapToItem={index => this.setState({activeSlide: index})}
+        />
+        {this.pagination}
+      </View>
     );
   }
 }
@@ -52,11 +80,8 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 22,
+    fontSize: 18,
     alignSelf: 'center',
-  },
-
-  contentContainerStyle: {
-    height: hp(50),
+    marginVertical: hp(2),
   },
 });
