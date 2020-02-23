@@ -10,10 +10,24 @@ import {Button} from '../../components';
 
 export default function NameScreen({navigation}) {
   const [userName, setUserName] = useState('');
+  const [error, setError] = useState(false);
 
   async function saveNameOnStorage() {
     await AsyncStorage.setItem('userName', userName);
     navigation.navigate('NameLibras');
+  }
+
+  function validateUserName() {
+    let userNameArray = userName.split(' ');
+
+    if (!userName || userNameArray.length >= 2) {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+    } else {
+      saveNameOnStorage();
+    }
   }
 
   return (
@@ -30,10 +44,15 @@ export default function NameScreen({navigation}) {
           onChangeText={nameInput => setUserName(nameInput)}
         />
       </View>
+      {error ? (
+        <Text style={styles.errorColor}>Insira somente o primeiro nome</Text>
+      ) : (
+        <Text />
+      )}
       <Button
         title="Concluído"
         top={hp(23)}
-        onPress={() => saveNameOnStorage()}
+        onPress={() => validateUserName()}
       />
     </View>
   );
@@ -51,5 +70,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: hp(2),
     fontSize: hp(4),
+  },
+
+  errorColor: {
+    color: '#EC5656',
   },
 });
