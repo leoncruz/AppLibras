@@ -19,6 +19,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        <Text style={styles.name}>Olá, {userName}</Text>
         <Text style={styles.title}>Suas Atividades</Text>
       </View>
       <View style={styles.content}>
@@ -40,10 +41,16 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    top: 10,
+  },
+
+  name: {
+    fontSize: 20,
+    color: '#007AED',
   },
 
   title: {
-    fontSize: 24,
+    fontSize: 18,
     color: '#007AED',
     textAlign: 'center',
   },
