@@ -11,6 +11,7 @@ import {Button} from '../../components';
 export default function NameScreen({navigation}) {
   const [userName, setUserName] = useState('');
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   async function saveNameOnStorage() {
     await AsyncStorage.setItem('userName', userName);
@@ -20,8 +21,17 @@ export default function NameScreen({navigation}) {
   function validateUserName() {
     let userNameArray = userName.split(' ');
 
-    if (!userName || userNameArray.length >= 2) {
+    if (!userName) {
       setError(true);
+      setErrorMessage('O nome não pode ser vazio');
+
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+    } else if (userNameArray.length >= 2) {
+      setError(true);
+      setErrorMessage('Insira somente o primeiro nome');
+
       setTimeout(() => {
         setError(false);
       }, 2000);
@@ -45,7 +55,7 @@ export default function NameScreen({navigation}) {
         />
       </View>
       {error ? (
-        <Text style={styles.errorColor}>Insira somente o primeiro nome</Text>
+        <Text style={styles.errorColor}> {errorMessage} </Text>
       ) : (
         <Text />
       )}
